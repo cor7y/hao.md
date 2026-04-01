@@ -1,0 +1,711 @@
+/* 
+  Theme: Light Mode & Minimalist (Ref: Matt Souza)
+  Effect: Liquid Glass (Glassmorphism + Smooth Blobs)
+*/
+
+:root {
+    /* Matt Souza inspired light palette */
+    --bg-color: #FAFAFA; /* Off-white background */
+    --text-main: #111111;
+    --text-muted: #888888;
+    --accent: #2C2C2C;
+    
+    /* Liquid Glass Variables */
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Typography Scale (Huge headers) */
+h1, h2, h3, h4 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+
+/* Reduced spacing between sections */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+
+/* Section Background Gradients */
+/* Ensure the text is still readable over the blurred shapes */
+.section-bg-1, .section-bg-2, .section-bg-3 {
+    position: relative;
+    z-index: 1;
+}
+
+.section-bg-1::before, .section-bg-2::before, .section-bg-3::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(120px);
+    opacity: 0.25;
+}
+
+.section-bg-1::before {
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.3), transparent 70%); /* Light Purple */
+}
+
+.section-bg-2::before {
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.3), transparent 70%); /* Light Blue */
+}
+
+.section-bg-3::before {
+    background: radial-gradient(circle, rgba(52, 211, 153, 0.3), transparent 70%); /* Light Green */
+}
+
+
+/* Liquid Fluid Background Blobs (Hero) */
+.bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.5;
+    animation: flow 15s ease-in-out infinite alternate;
+}
+
+.shape-1 {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+    top: -10%;
+    right: -10%;
+}
+
+.shape-2 {
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+    bottom: 20%;
+    left: -20%;
+    animation-delay: -5s;
+}
+
+@keyframes flow {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 100px) scale(1.1); }
+}
+
+/* --- Navigation (Liquid Glass) --- */
+.liquid-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: all 0.4s ease;
+}
+
+.liquid-nav.scrolled {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: var(--text-main);
+    letter-spacing: -0.03em;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    margin-left: 2rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-main);
+}
+
+.nav-size {
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    padding-bottom: 2px !important;
+    border-bottom-width: 1px !important;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: clamp(4rem, 8vw, 6.5rem);
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: var(--text-main);
+}
+
+.hero-bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+    transition: opacity 0.5s ease;
+    z-index: 10;
+}
+
+.company-logo-link {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text-main);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.company-logo-link:hover {
+    background: rgba(0,0,0,0.02);
+}
+
+.logo-company {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--text-main);
+}
+
+.logo-role {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+/* (CTA Link removed, skipping CTA styles or repurposing if needed) */
+.text-link-underline {
+    display: inline-block;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--text-main);
+    transition: all 0.3s ease;
+}
+
+.text-link-underline:hover {
+    color: var(--text-muted);
+    border-color: var(--text-muted);
+}
+
+/* --- Liquid Glass Cards --- */
+.liquid-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: var(--glass-shadow);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skills-grid h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.skills-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.skill-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(0,0,0,0.03);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(0,0,0,0.06);
+    color: var(--text-main);
+}
+
+.skill-tag img, .skill-tag svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0.85;
+}
+
+/* --- Work Experience (Minimalist Timeline) --- */
+.work-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.work-item {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding: 3rem 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.work-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.work-date {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-family: monospace;
+}
+
+.work-company {
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.work-role {
+    font-weight: 400;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.work-summary {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+}
+
+.work-full-details {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 1px dashed transparent;
+    color: var(--text-muted);
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, margin-top 0.4s ease, padding-top 0.4s ease, border-color 0.4s ease;
+}
+
+.work-full-details.open {
+    max-height: 1500px; /* arbitrary large max-height for transition */
+    opacity: 1;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top-color: rgba(0,0,0,0.1);
+}
+
+.work-full-details h4 {
+    color: var(--text-main);
+    margin: 1.5rem 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.work-full-details p {
+    margin-bottom: 0.8rem;
+}
+
+.work-full-details ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.work-full-details li {
+    margin-bottom: 0.5rem;
+}
+
+.work-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+.expand-btn, .expand-btn-bottom {
+    background: none;
+    border: none;
+    color: var(--text-main);
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--text-main);
+    transition: all 0.3s ease;
+}
+
+.expand-btn:hover, .expand-btn-bottom:hover {
+    color: var(--text-muted);
+    border-color: var(--text-muted);
+}
+
+/* Hover effect applying liquid glass on hover */
+.liquid-card-hover {
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    margin: 0 -2rem; /* visually compensate padding */
+    border-top: 1px solid transparent; /* Override top border on hover */
+}
+
+.liquid-card-hover:hover {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+    .work-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* --- Footer --- */
+footer {
+    position: relative;
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.contact-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.contact-item span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.contact-item strong, .contact-item a {
+    font-weight: 500;
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.contact-item a {
+    border-bottom: 1px solid var(--text-main);
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--text-muted);
+    border-color: var(--text-muted);
+}
+
+/* --- Custom Scroll Animations --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Lovable Style Gradients --- */
+.lovable-gradient-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 400px;
+    pointer-events: none;
+    z-index: -1; 
+}
+
+.lovable-gradient-hero {
+    bottom: -200px; /* Sit right at the boundary */
+}
+
+.lovable-gradient-footer {
+    bottom: 0; 
+}
+
+.lovable-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: 0.35;
+}
+
+.lovable-blob-green { /* Re-purposing for the 'blue' side */
+    width: 80vw;
+    height: 400px;
+    background: #38bdf8; /* light blue like bottom left */
+    top: 50%;
+    transform: translateY(-50%);
+    left: -20vw;
+}
+
+.lovable-blob-red { /* Re-purposing for the 'pink/magenta' side */
+    width: 80vw;
+    height: 400px;
+    background: #FF2E93; /* vibrant pink/magenta */
+    top: 50%;
+    transform: translateY(-50%);
+    right: -20vw;
+}
+
+
+/* --- AI Chat Widget (Liquid Glass) --- */
+.liquid-widget {
+    position: fixed;
+    bottom: 5rem;
+    right: 2rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* --- Animatable Morph Capsule (Button -> Window) --- */
+.ai-morph-capsule {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* Capsule button states */
+.liquid-btn.ai-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 60px;
+    padding: 0 1.5rem;
+    background: var(--glass-bg);
+    box-shadow: var(--glass-shadow);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 30px; /* Fully rounded capsule */
+    color: var(--text-main);
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2; /* Keep above the panel when visible */
+}
+
+/* Hide button when chat is open */
+.ai-morph-capsule.open .liquid-btn.ai-btn {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.8);
+}
+
+.liquid-btn.ai-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+/* Glass Panel morphed state */
+.liquid-glass-panel {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: var(--glass-bg);
+    backdrop-filter: blur(24px) saturate(150%);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    
+    /* Morph transition setup */
+    width: 60px; /* Start as the exact size/shape of the button */
+    height: 60px;
+    border-radius: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transform-origin: bottom right;
+    transition: width 0.5s cubic-bezier(0.19, 1, 0.22, 1), 
+                height 0.5s cubic-bezier(0.19, 1, 0.22, 1), 
+                border-radius 0.4s ease, 
+                opacity 0.2s ease,
+                transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 1;
+}
+
+/* When open, it expands to full window size */
+.ai-morph-capsule.open .liquid-glass-panel {
+    width: 380px;
+    height: 600px;
+    border-radius: 24px; /* Standard window border radius */
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+.ai-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    opacity: 0; /* Hidden when collapsed */
+    transition: opacity 0.3s ease 0.2s; /* Fade in slightly after morph starts */
+}
+
+.ai-morph-capsule.open .ai-header {
+    opacity: 1;
+}
+
+#ai-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+/* Placeholder for the iframe */
+.iframe-placeholder {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    background: rgba(255,255,255,0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease 0.2s;
+}
+
+.ai-morph-capsule.open .iframe-placeholder {
+    opacity: 1;
+}
+
+.liquid-glass-panel iframe {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    border: none;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.2s;
+}
+
+.ai-morph-capsule.open .liquid-glass-panel iframe {
+    opacity: 1;
+}
+
+@media (max-width: 480px) {
+    .liquid-glass-panel {
+        width: calc(100vw - 2rem);
+        height: 70vh;
+        right: 1rem;
+        bottom: 5rem;
+        position: fixed;
+    }
+}
