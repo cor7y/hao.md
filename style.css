@@ -86,6 +86,56 @@ h1, h2, h3, h4 {
 }
 
 
+/* --- Hero Background Effect Container --- */
+#hero-bg-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    will-change: opacity;
+}
+
+/* --- New Semi-Transparent Blurred Blobs --- */
+.hero-new-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.7;
+    animation: flowNew 20s infinite ease-in-out alternate;
+}
+
+.blob-1 {
+    width: 55vw;
+    height: 55vw;
+    max-width: 800px;
+    max-height: 800px;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.2), transparent 70%); /* Pink/Red */
+    bottom: -15%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.blob-3 {
+    width: 45vw;
+    height: 45vw;
+    max-width: 700px;
+    max-height: 700px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.2), transparent 70%); /* Light Blue */
+    top: 25%;
+    left: 35%;
+    animation-delay: -8s;
+}
+
+@keyframes flowNew {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -40px) scale(1.05); }
+    100% { transform: translate(-30px, 40px) scale(0.95); }
+}
+
 /* Liquid Fluid Background Blobs (Hero) */
 .bg-shape {
     position: absolute;
@@ -319,7 +369,7 @@ h1, h2, h3, h4 {
 
 .work-item {
     border-top: 1px solid rgba(0,0,0,0.1);
-    padding: 3rem 0;
+    padding: 1.5rem 0;
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 2rem;
@@ -352,15 +402,25 @@ h1, h2, h3, h4 {
 
 .work-summary {
     font-size: 1.1rem;
-    color: var(--text-main);
+    color: #000;
     margin-bottom: 1rem;
+    max-height: 200px;
+    opacity: 1;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease, margin-bottom 0.4s ease;
+}
+
+.work-item.is-open .work-summary {
+    max-height: 0;
+    opacity: 0;
+    margin-bottom: 0;
 }
 
 .work-full-details {
     margin-top: 0;
     padding-top: 0;
     border-top: 1px dashed transparent;
-    color: var(--text-muted);
+    color: #000;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
@@ -370,13 +430,17 @@ h1, h2, h3, h4 {
 .work-full-details.open {
     max-height: 1500px; /* arbitrary large max-height for transition */
     opacity: 1;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top-color: rgba(0,0,0,0.1);
+    margin-top: 0;
+    padding-top: 0;
+    border-top-color: transparent;
+}
+
+.work-full-details > :first-child {
+    margin-top: 0!important;
 }
 
 .work-full-details h4 {
-    color: var(--text-main);
+    color: #000;
     margin: 1.5rem 0 0.5rem 0;
     font-size: 1.1rem;
 }
@@ -424,7 +488,7 @@ h1, h2, h3, h4 {
 /* Hover effect applying liquid glass on hover */
 .liquid-card-hover {
     border-radius: 24px;
-    padding: 3rem 2rem;
+    padding: 1.5rem 2rem;
     margin: 0 -2rem; /* visually compensate padding */
     border-top: 1px solid transparent; /* Override top border on hover */
 }
@@ -476,7 +540,7 @@ footer {
 
 .contact-item span {
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: #000;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
@@ -525,14 +589,20 @@ footer {
 }
 
 .lovable-gradient-footer {
-    bottom: 0; 
+    position: fixed;
+    bottom: -300px; /* moved down by 100px more */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
 }
 
 .lovable-blob {
     position: absolute;
     border-radius: 50%;
     filter: blur(140px);
-    opacity: 0.35;
+    opacity: 1;
 }
 
 .lovable-blob-green { /* Re-purposing for the 'blue' side */

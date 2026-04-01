@@ -18,6 +18,35 @@ document.addEventListener('DOMContentLoaded', () => {
             heroLogos.style.opacity = Math.max(0, opacity);
             heroLogos.style.pointerEvents = opacity <= 0 ? 'none' : 'auto';
         }
+
+        // Hero background and gradients fade out as we scroll to #work
+        const heroBgEffect = document.getElementById('hero-bg-effect');
+        const workSection = document.getElementById('work');
+        if (heroBgEffect && workSection) {
+            const workTop = workSection.offsetTop;
+            if (workTop > 0) {
+                const bgOpacity = 1 - (window.scrollY / workTop);
+                heroBgEffect.style.opacity = Math.max(0, Math.min(1, bgOpacity));
+            }
+        }
+
+        // Footer gradient: fade in during last viewport of scroll, max 0.8
+        const footerGradient = document.getElementById('footer-gradient');
+        if (footerGradient) {
+            const docHeight = document.documentElement.scrollHeight;
+            const viewH = window.innerHeight;
+            const maxScroll = docHeight - viewH;
+            // "Last screen" starts at maxScroll - viewH
+            const fadeStart = maxScroll - viewH;
+            if (window.scrollY <= fadeStart) {
+                footerGradient.style.opacity = 0;
+            } else if (window.scrollY >= maxScroll) {
+                footerGradient.style.opacity = 0.8;
+            } else {
+                const progress = (window.scrollY - fadeStart) / (maxScroll - fadeStart);
+                footerGradient.style.opacity = (progress * 0.8).toFixed(3);
+            }
+        }
     });
     
     // 1. Scroll Fade-In Animation (Intersection Observer)
@@ -74,6 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
 
                     otherDetail.classList.remove('open');
+                    const workItemParent = otherDetail.closest('.work-item');
+                    if (workItemParent) workItemParent.classList.remove('is-open');
                     const otherTopBtn = otherDetail.closest('.work-item').querySelector('.expand-btn');
                     if (otherTopBtn) {
                         otherTopBtn.innerHTML = '展开详情';
@@ -83,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Open current
                 fullDetails.classList.add('open');
+                this.classList.add('is-open');
                 if (topBtn) {
                     topBtn.innerHTML = '收起';
                     topBtn.classList.add('active');
@@ -99,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 // Close
                 fullDetails.classList.remove('open');
+                this.classList.remove('is-open');
                 if (topBtn) {
                     topBtn.innerHTML = '展开详情';
                     topBtn.classList.remove('active');
@@ -178,6 +211,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             }
 
                             otherDetail.classList.remove('open');
+                            const otherWorkItem = otherDetail.closest('.work-item');
+                            if (otherWorkItem) otherWorkItem.classList.remove('is-open');
                             const otherTopBtn = otherDetail.closest('.work-item').querySelector('.expand-btn');
                             if (otherTopBtn) {
                                 otherTopBtn.innerHTML = '展开详情';
@@ -198,6 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (fullDetails && !fullDetails.classList.contains('open')) {
                         // trigger synchronously
                         fullDetails.classList.add('open');
+                        targetElement.classList.add('is-open');
                         if (topBtn) {
                             topBtn.innerHTML = '收起';
                             topBtn.classList.add('active');
