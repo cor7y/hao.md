@@ -19,15 +19,33 @@ document.addEventListener('DOMContentLoaded', () => {
             heroLogos.style.pointerEvents = opacity <= 0 ? 'none' : 'auto';
         }
 
-        // Hero background and gradients fade out as we scroll to #work
-        const heroBgEffect = document.getElementById('hero-bg-effect');
+        // Background glows: fade out when #work section or footer is in view
+        const bgGlow = document.getElementById('bg-glow-container');
         const workSection = document.getElementById('work');
-        if (heroBgEffect && workSection) {
+        const footer = document.querySelector('footer');
+        if (bgGlow && workSection && footer) {
+            const viewH = window.innerHeight;
+            const scrollY = window.scrollY;
             const workTop = workSection.offsetTop;
-            if (workTop > 0) {
-                const bgOpacity = 1 - (window.scrollY / workTop);
-                heroBgEffect.style.opacity = Math.max(0, Math.min(1, bgOpacity));
-            }
+            const workBottom = workTop + workSection.offsetHeight;
+            const footerTop = footer.offsetTop;
+            const footerBottom = footerTop + footer.offsetHeight;
+
+            // Current viewport range
+            const vpTop = scrollY;
+            const vpBottom = scrollY + viewH;
+
+            // Check overlap with work section
+            const workOverlap = Math.max(0, Math.min(vpBottom, workBottom) - Math.max(vpTop, workTop));
+            const workRatio = Math.min(1, workOverlap / (viewH * 0.5));
+
+            // Check overlap with footer
+            const footerOverlap = Math.max(0, Math.min(vpBottom, footerBottom) - Math.max(vpTop, footerTop));
+            const footerRatio = Math.min(1, footerOverlap / (viewH * 0.5));
+
+            // Take the max fade-out factor
+            const fadeOut = Math.max(workRatio, footerRatio);
+            bgGlow.style.opacity = Math.max(0, 1 - fadeOut);
         }
 
         // Footer gradient: fade in during last viewport of scroll, max 0.8
@@ -243,4 +261,89 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 5. Background Glow Mouse Interaction (magnetic repulsion)
+    const glowRed = document.querySelector('.glow-red');
+    const glowBlue = document.querySelector('.glow-blue');
+
+    if (glowRed && glowBlue) {
+        let mouseX = -9999, mouseY = -9999;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Leave mouse far away when it leaves the window
+        document.addEventListener('mouseleave', () => {
+            mouseX = -9999;
+            mouseY = -9999;
+        });
+
+        const glows = [
+            { el: glowRed, ox: 0, oy: 0, vx: 0, vy: 0 },
+            { el: glowBlue, ox: 0, oy: 0, vx: 0, vy: 0 }
+        ];
+
+        function animateGlows() {
+            const mouseRepelRadius = 400;
+            const mouseRepelForce = 12;
+            const glowRepelRadius = 500;
+            const glowRepelForce = 8;
+            const springForce = 0.012;
+            const damping = 0.93;
+
+            // Get current visual centers
+            const centers = glows.map(g => {
+                const r = g.el.getBoundingClientRect();
+                return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+            });
+
+            for (let i = 0; i < glows.length; i++) {
+                const g = glows[i];
+                const c = centers[i];
+                let fx = 0, fy = 0;
+
+                // Mouse repulsion
+                const dmx = c.x - mouseX;
+                const dmy = c.y - mouseY;
+                const distM = Math.sqrt(dmx * dmx + dmy * dmy);
+                if (distM < mouseRepelRadius && distM > 1) {
+                    const strength = ((mouseRepelRadius - distM) / mouseRepelRadius);
+                    fx += (dmx / distM) * strength * mouseRepelForce;
+                    fy += (dmy / distM) * strength * mouseRepelForce;
+                }
+
+                // Glow-glow repulsion (prevent overlap)
+                for (let j = 0; j < glows.length; j++) {
+                    if (i === j) continue;
+                    const oc = centers[j];
+                    const dgx = c.x - oc.x;
+                    const dgy = c.y - oc.y;
+                    const distG = Math.sqrt(dgx * dgx + dgy * dgy);
+                    if (distG < glowRepelRadius && distG > 1) {
+                        const strength = ((glowRepelRadius - distG) / glowRepelRadius);
+                        fx += (dgx / distG) * strength * glowRepelForce;
+                        fy += (dgy / distG) * strength * glowRepelForce;
+                    }
+                }
+
+                // Spring back to home position (ox=0, oy=0)
+                fx -= g.ox * springForce;
+                fy -= g.oy * springForce;
+
+                // Integrate velocity + damping
+                g.vx = (g.vx + fx) * damping;
+                g.vy = (g.vy + fy) * damping;
+                g.ox += g.vx;
+                g.oy += g.vy;
+
+                g.el.style.transform = `translate(${g.ox}px, ${g.oy}px)`;
+            }
+
+            requestAnimationFrame(animateGlows);
+        }
+
+        animateGlows();
+    }
 });
