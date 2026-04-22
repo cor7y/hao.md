@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(command -v npx)"
+      "Bash(command -v npx)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }
