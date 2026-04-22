@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医疗 SaaS 平台 — 吴昊 项目详情</title>
+    <meta name="description" content="暨南大学附一潮汕医院肿瘤中心医疗 SaaS 产品设计详情。针对患者外流问题，设计连接医患两端的数字化解决方案。">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="project-detail.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="liquid-nav scrolled">
+        <div class="nav-content">
+            <a href="index.html" class="logo">Hao.md</a>
+            <div class="nav-links">
+                <a href="index.html#work">经历</a>
+                <a href="index.html#education">教育</a>
+                <a href="index.html#skills">技能</a>
+                <a href="index.html#contact" class="nav-contact">联系我</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="project-hero-content fade-in">
+            <a href="index.html#exp-hospital" class="project-back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+                返回
+            </a>
+            <span class="project-tag">医疗 SaaS</span>
+            <h1 class="project-hero-title">肿瘤中心<br>医患连接平台</h1>
+            <p class="project-hero-meta">暨南大学附一潮汕医院 · SaaS 产品经理 · 2023.6 — 2023.9</p>
+            <p class="project-hero-desc">
+                针对肿瘤中心"患者外流"问题，通过深度用户调研定位医患两端核心痛点，<br>
+                设计"专家在线支持 + 本地化内容触达"产品策略，构建连接医患两端的 SaaS 平台。
+            </p>
+        </div>
+    </section>
+
+    <!-- Layout: Sidebar + Content -->
+    <div class="project-layout">
+
+        <!-- Sidebar Navigation -->
+        <aside class="project-sidebar">
+            <nav class="sidebar-nav">
+                <a href="#section-background" class="sidebar-link active" data-section="section-background">
+                    <span class="sidebar-indicator"></span>
+                    项目背景
+                </a>
+                <a href="#section-research" class="sidebar-link" data-section="section-research">
+                    <span class="sidebar-indicator"></span>
+                    用户研究
+                </a>
+                <a href="#section-strategy" class="sidebar-link" data-section="section-strategy">
+                    <span class="sidebar-indicator"></span>
+                    产品策略
+                </a>
+                <a href="#section-architecture" class="sidebar-link" data-section="section-architecture">
+                    <span class="sidebar-indicator"></span>
+                    信息架构
+                </a>
+                <a href="#section-prototype" class="sidebar-link" data-section="section-prototype">
+                    <span class="sidebar-indicator"></span>
+                    交互原型
+                </a>
+                <a href="#section-result" class="sidebar-link" data-section="section-result">
+                    <span class="sidebar-indicator"></span>
+                    验证与成果
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="project-content">
+
+            <!-- Section 1: 项目背景 -->
+            <section id="section-background" class="content-section fade-in">
+                <div class="section-label">01</div>
+                <h2 class="content-title">项目背景</h2>
+                <div class="content-body">
+                    <p>
+                        暨南大学附属第一潮汕医院肿瘤中心面临严峻的"患者外流"问题——大量本地患者选择前往广州、深圳等一线城市就医，导致科室业务量持续下降。传统的患者管理方式无法有效建立医患信任，也缺乏持续性的健康管理触达手段。
+                    </p>
+                    <p>
+                        本项目旨在通过数字化手段，构建一个连接医生与患者的 SaaS 平台，降低患者外流率，提升本地医疗资源的利用效率和患者信任度。
+                    </p>
+
+                    <div class="image-placeholder large">
+                        <div class="placeholder-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                <circle cx="9" cy="9" r="2" />
+                                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                            </svg>
+                        </div>
+                        <span>问题场景示意图</span>
+                    </div>
+
+                    <div class="highlight-cards">
+                        <div class="highlight-card">
+                            <div class="highlight-number">50%</div>
+                            <div class="highlight-label">预计减少患者外流</div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-number">3</div>
+                            <div class="highlight-label">核心用户角色</div>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-number">12周</div>
+                            <div class="highlight-label">项目周期</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: 用户研究 -->
+            <section id="section-research" class="content-section fade-in">
+                <div class="section-label">02</div>
+                <h2 class="content-title">用户研究</h2>
+                <div class="content-body">
+                    <h3 class="content-subtitle">深度访谈</h3>
+                    <p>
+                        对多方用户（肿瘤科医生、科室管理层、患者及家属）进行深度访谈，精准定位医患两端的核心痛点与需求。医生端主要痛点在于随访管理效率低、患者依从性差；患者端则面临信息不对称、缺乏持续的专家指导。
+                    </p>
+
+                    <div class="image-group">
+                        <div class="image-placeholder medium">
+                            <div class="placeholder-icon">
+                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                    <circle cx="9" cy="9" r="2" />
+                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                                </svg>
+                            </div>
+                            <span>用户访谈记录</span>
+                        </div>
+                        <div class="image-placeholder medium">
+                            <div class="placeholder-icon">
+                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                    <circle cx="9" cy="9" r="2" />
+                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                                </svg>
+                            </div>
+                            <span>痛点分析矩阵</span>
+                        </div>
+                    </div>
+
+                    <h3 class="content-subtitle">竞品分析</h3>
+                    <p>
+                        系统研究了国内主流医患管理平台（好大夫在线、微医、丁香医生等），分析其产品功能、商业模式与用户体验。结合案例分析，提炼出适用于地市级医院的差异化策略——聚焦"专家在线支持"与"本地化内容触达"两大核心能力。
+                    </p>
+
+                    <div class="image-placeholder large">
+                        <div class="placeholder-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                <circle cx="9" cy="9" r="2" />
+                                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                            </svg>
+                        </div>
+                        <span>竞品分析对比图</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: 产品策略 -->
+            <section id="section-strategy" class="content-section fade-in">
+                <div class="section-label">03</div>
+                <h2 class="content-title">产品策略</h2>
+                <div class="content-body">
+                    <p>
+                        基于用户调研和竞品分析的洞察，制定"专家在线支持 + 本地化内容触达"的双轮驱动产品策略。医生端通过高效的随访管理工具提升工作效率；患者端通过个性化的健康内容推送和在线问诊功能，建立持续的医患连接。
+                    </p>
+
+                    <div class="strategy-flow">
+                        <div class="strategy-node">
+                            <div class="node-icon">🔍</div>
+                            <div class="node-title">痛点定位</div>
+                            <div class="node-desc">多角色深度访谈</div>
+                        </div>
+                        <div class="strategy-arrow">→</div>
+                        <div class="strategy-node">
+                            <div class="node-icon">💡</div>
+                            <div class="node-title">策略定义</div>
+                            <div class="node-desc">双轮驱动模型</div>
+                        </div>
+                        <div class="strategy-arrow">→</div>
+                        <div class="strategy-node">
+                            <div class="node-icon">🏗️</div>
+                            <div class="node-title">产品设计</div>
+                            <div class="node-desc">医患双端 SaaS</div>
+                        </div>
+                        <div class="strategy-arrow">→</div>
+                        <div class="strategy-node">
+                            <div class="node-icon">✅</div>
+                            <div class="node-title">验证迭代</div>
+                            <div class="node-desc">原型测试与反馈</div>
+                        </div>
+                    </div>
+
+                    <div class="image-placeholder large">
+                        <div class="placeholder-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                <circle cx="9" cy="9" r="2" />
+                                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                            </svg>
+                        </div>
+                        <span>产品策略框架图</span>
+                    </div>
+
+                    <h3 class="content-subtitle">核心功能模块</h3>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">👨‍⚕️</div>
+                            <div class="feature-text">
+                                <strong>医生端 — 智能随访管理</strong>
+                                <p>自动化随访任务分发、患者状态追踪、异常指标预警，帮助医生高效管理院后患者。</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🏥</div>
+                            <div class="feature-text">
+                                <strong>患者端 — 在线问诊与内容触达</strong>
+                                <p>图文/语音问诊、个性化健康科普推送、用药提醒，降低患者外出就医的决策成本。</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📊</div>
+                            <div class="feature-text">
+                                <strong>管理端 — 运营数据看板</strong>
+                                <p>患者留存率、随访完成率、科室业务趋势等关键指标可视化，支持管理层的商业决策。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: 信息架构 -->
+            <section id="section-architecture" class="content-section fade-in">
+                <div class="section-label">04</div>
+                <h2 class="content-title">信息架构</h2>
+                <div class="content-body">
+                    <p>
+                        输出完整的需求文档与业务流程图，定义清晰的信息架构。产品分为医生端（Web + 移动端）和患者端（微信小程序），通过统一的后台管理系统进行数据协同。
+                    </p>
+
+                    <div class="image-placeholder xlarge">
+                        <div class="placeholder-icon">
+                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                <circle cx="9" cy="9" r="2" />
+                                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                            </svg>
+                        </div>
+                        <span>业务流程图</span>
+                    </div>
+
+                    <div class="image-placeholder xlarge">
+                        <div class="placeholder-icon">
+                            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                <circle cx="9" cy="9" r="2" />
+                                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                            </svg>
+                        </div>
+                        <span>信息架构图</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: 交互原型 -->
+            <section id="section-prototype" class="content-section fade-in">
+                <div class="section-label">05</div>
+                <h2 class="content-title">交互原型</h2>
+                <div class="content-body">
+                    <p>
+                        基于信息架构，输出高保真交互原型。医生端采用 Web 端为主、移动端为辅的双端方案；患者端以微信小程序为载体，降低使用门槛。所有交互设计均经过医患双方的可用性验证。
+                    </p>
+
+                    <h3 class="content-subtitle">医生端界面</h3>
+                    <div class="prototype-showcase">
+                        <div class="image-placeholder prototype-screen">
+                            <div class="placeholder-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                    <circle cx="9" cy="9" r="2" />
+                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                                </svg>
+                            </div>
+                            <span>患者管理仪表盘</span>
+                        </div>
+                        <div class="image-placeholder prototype-screen">
+                            <div class="placeholder-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                    <circle cx="9" cy="9" r="2" />
+                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                                </svg>
+                            </div>
+                            <span>随访任务管理</span>
+                        </div>
+                        <div class="image-placeholder prototype-screen">
+                            <div class="placeholder-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                    <circle cx="9" cy="9" r="2" />
+                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                                </svg>
+                            </div>
+                            <span>在线问诊界面</span>
+                        </div>
+                    </div>
+
+                    <h3 class="content-subtitle">患者端界面</h3>
+                    <div class="prototype-showcase mobile-showcase">
+                        <div class="image-placeholder prototype-mobile">
+                            <div class="placeholder-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                    <circle cx="9" cy="9" r="2" />
+                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                                </svg>
+                            </div>
+                            <span>首页</span>
+                        </div>
+                        <div class="image-placeholder prototype-mobile">
+                            <div class="placeholder-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                    <circle cx="9" cy="9" r="2" />
+                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                                </svg>
+                            </div>
+                            <span>健康资讯</span>
+                        </div>
+                        <div class="image-placeholder prototype-mobile">
+                            <div class="placeholder-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                    <circle cx="9" cy="9" r="2" />
+                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                                </svg>
+                            </div>
+                            <span>问诊详情</span>
+                        </div>
+                        <div class="image-placeholder prototype-mobile">
+                            <div class="placeholder-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                    <circle cx="9" cy="9" r="2" />
+                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                                </svg>
+                            </div>
+                            <span>个人中心</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: 验证与成果 -->
+            <section id="section-result" class="content-section fade-in">
+                <div class="section-label">06</div>
+                <h2 class="content-title">验证与成果</h2>
+                <div class="content-body">
+                    <h3 class="content-subtitle">原型测试</h3>
+                    <p>
+                        与医生及患者进行多轮原型测试，收集关键用户反馈。医生端反馈重点集中在随访任务的自动化程度和患者信息的检索效率；患者端反馈主要关注内容推送的个性化程度和问诊流程的便捷性。
+                    </p>
+
+                    <div class="image-placeholder large">
+                        <div class="placeholder-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                <circle cx="9" cy="9" r="2" />
+                                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                            </svg>
+                        </div>
+                        <span>原型测试反馈汇总</span>
+                    </div>
+
+                    <h3 class="content-subtitle">项目成果</h3>
+                    <div class="result-cards">
+                        <div class="result-card">
+                            <div class="result-icon">📉</div>
+                            <div class="result-title">预计减少 50% 患者外流</div>
+                            <p>通过持续的医患连接和本地化内容触达，有效提升患者对本地医疗资源的信任度。</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-icon">✅</div>
+                            <div class="result-title">原型测试获积极反馈</div>
+                            <p>医患双方的原型测试获得积极反馈，为后续迭代提供了关键输入。</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-icon">💼</div>
+                            <div class="result-title">支持管理层商业决策</div>
+                            <p>产品方案有效支持科室管理层的战略规划与资源配置。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bottom Navigation -->
+            <div class="project-bottom-nav fade-in">
+                <a href="index.html#exp-hospital" class="bottom-nav-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5"></path>
+                        <path d="M12 19l-7-7 7-7"></path>
+                    </svg>
+                    返回项目列表
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="project-detail.js"></script>
+</body>
+
+</html>

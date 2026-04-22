@@ -14,6 +14,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chat.css">
 </head>
 
 <body>
@@ -79,13 +80,13 @@
                     <!-- Experience 1 -->
                     <div class="work-item fade-in liquid-card-hover" id="exp-lingshun">
                         <div class="work-meta">
-                            <span class="work-date">2025.9 — 至今</span>
+                            <span class="work-date">2025.9 — 2026.3</span>
                             <h3 class="work-company">杭州灵舜科技有限公司</h3>
-                            <h4 class="work-role">电商 AI 产品经理</h4>
+                            <h4 class="work-role">B端 AI产品经理</h4>
                         </div>
                         <div class="work-details">
                             <div class="work-summary">
-                                面向B端电商的全业务Agent产品，实现90%的成本削减，内容采纳率超20%。
+                                面向B端电商的全业务Agent产品，实现90%成本削减，内容采纳率超20%。
                             </div>
                             <div class="work-full-details hidden-details">
                                 <h4>一、电商开品洞察Agent（0-1架构验证）</h4>
@@ -101,8 +102,8 @@
                                 <h4>二、多模态AIGC创作Agent（敏捷落地）</h4>
                                 <p>针对电商内容生产高成本、低覆盖的痛点，规划两款面向运营端的AIGC生产Agent，单篇文案生产耗时从60分钟降至10分钟，预估单支视频制作成本降低80%。</p>
                                 <ul>
-                                    <li><strong>文案矩阵AI工作流：</strong>明确“品牌定制化+对标拆解”的差异化策略，构建“语气预设-拆解-生成”文案生产工作流，在零代码平台完成PoC，运用Vibe
-                                        Coding跑通MVP，实现AI文案矩阵高质生产；</li>
+                                    <li><strong>文案矩阵AI工作流：</strong>明确“品牌定制化+对标拆解”的差异化策略，构建“语气预设-拆解-生成”文案生产工作流，在零代码平台完成PoC，运用vibe
+                                        吃、oding跑通MVP，实现AI文案矩阵高质生产；</li>
                                     <li><strong>视频模型评测与验证：</strong>基于电商带货场景，建立200+样本测试集，评测5个主流模型的能力边界并调优3套提示词。独立搭建AI工作流完成PoC，并设计“效率优先+人工审核”的Agent前端体验。
                                     </li>
                                 </ul>
@@ -170,6 +171,13 @@
                                     需求文档、业务流程图、信息架构及高保真交互原型。</p>
                                 <p><strong>测试迭代：</strong>与医患进行的原型测试获积极反馈，为后续迭代提供了关键输入。</p>
                                 <p><strong>产品影响力：</strong>预计减少 50% 患者外流，有效支持管理层的商业决策。</p>
+                                <a href="hospital-saas.html" class="project-detail-btn" onclick="event.stopPropagation()">
+                                    查看项目详情
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 12h14"></path>
+                                        <path d="M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
                             </div>
                             <div class="work-actions">
                                 <button class="expand-btn-bottom">展开详情</button>
@@ -345,10 +353,26 @@
                     <span>你想了解吴昊的什么？</span>
                     <button id="ai-close-btn">&times;</button>
                 </div>
-                <!-- REMOVED FOR SECURITY - REPLACE WITH YOUR PLATFORM IFRAME -->
-                <!-- <iframe src="YOUR_DIFY_OR_COZE_PUBLIC_URL_HERE" frameborder="0" allow="microphone"></iframe> -->
-                <div class="iframe-placeholder">
-                    <p>对话知识库搭建中</p>
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages"></div>
+                    <div class="chat-error" id="chat-error" hidden>
+                        <span id="chat-error-text"></span>
+                        <button type="button" id="chat-error-dismiss" aria-label="关闭">&times;</button>
+                    </div>
+                    <div class="chat-suggestions" id="chat-suggestions">
+                        <button type="button" class="chat-chip" data-q="介绍一下你的 AI 产品经验">介绍一下你的 AI 产品经验</button>
+                        <button type="button" class="chat-chip" data-q="你做过哪些项目？">你做过哪些项目？</button>
+                        <button type="button" class="chat-chip" data-q="怎么联系你？">怎么联系你？</button>
+                    </div>
+                    <div class="chat-input-wrapper">
+                        <textarea id="chat-input" rows="1" placeholder="问点什么…"></textarea>
+                        <button type="button" id="chat-send" disabled aria-label="发送">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="19" x2="12" y2="5"></line>
+                                <polyline points="5 12 12 5 19 12"></polyline>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -356,6 +380,7 @@
 
     <!-- Scripts for animations -->
     <script src="script.js"></script>
+    <script src="chat.js" defer></script>
 </body>
 
 </html>

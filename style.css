@@ -443,6 +443,38 @@ h1, h2, h3, h4 {
     border-color: var(--text-muted);
 }
 
+/* "View Project Detail" button in work cards */
+.project-detail-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    margin-top: 1rem;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--text-main);
+    transition: all 0.3s ease;
+}
+
+.project-detail-btn:hover {
+    color: var(--text-muted);
+    border-color: var(--text-muted);
+}
+
+.project-detail-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.project-detail-btn:hover svg {
+    transform: translateX(3px);
+}
+
 /* Hover effect applying liquid glass on hover */
 .liquid-card-hover {
     border-radius: 24px;
