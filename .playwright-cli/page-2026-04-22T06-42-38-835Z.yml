@@ -1,0 +1,238 @@
+- generic [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "Hao.md" [ref=e4] [cursor=pointer]:
+        - /url: "#"
+      - generic [ref=e5]:
+        - link "经历" [ref=e6] [cursor=pointer]:
+          - /url: "#work"
+        - link "教育" [ref=e7] [cursor=pointer]:
+          - /url: "#education"
+        - link "技能" [ref=e8] [cursor=pointer]:
+          - /url: "#skills"
+        - link "联系我" [ref=e9] [cursor=pointer]:
+          - /url: "#contact"
+  - main [ref=e10]:
+    - generic [ref=e12]:
+      - heading "Hi， 我是吴昊。" [level=1] [ref=e13]:
+        - text: Hi，
+        - text: 我是吴昊。
+      - paragraph [ref=e14]:
+        - text: 理解AI技术边界，将业务需求落地为商业化方案的AI产品经理与体验设计专家。
+        - text: 26应届海外硕士 (QS78)，英语可作为工作语言。
+    - generic [ref=e15]:
+      - link "杭州灵舜科技 AI产品经理" [ref=e16] [cursor=pointer]:
+        - /url: "#exp-lingshun"
+        - generic [ref=e17]: 杭州灵舜科技
+        - generic [ref=e18]: AI产品经理
+      - link "苏格兰政府AI策略部 产品经理" [ref=e19] [cursor=pointer]:
+        - /url: "#exp-scotland"
+        - generic [ref=e20]: 苏格兰政府AI策略部
+        - generic [ref=e21]: 产品经理
+      - link "浙大人工智能学院 体验设计" [ref=e22] [cursor=pointer]:
+        - /url: "#exp-zju"
+        - generic [ref=e23]: 浙大人工智能学院
+        - generic [ref=e24]: 体验设计
+      - link "潮汕医院 SaaS产品经理" [ref=e25] [cursor=pointer]:
+        - /url: "#exp-hospital"
+        - generic [ref=e26]: 潮汕医院
+        - generic [ref=e27]: SaaS产品经理
+    - generic [ref=e29]:
+      - heading "项目经历." [level=2] [ref=e30]
+      - generic [ref=e31]:
+        - generic [ref=e32] [cursor=pointer]:
+          - generic [ref=e33]:
+            - generic [ref=e34]: 2025.9 — 2026.3
+            - heading "杭州灵舜科技有限公司" [level=3] [ref=e35]
+            - heading "B端 AI产品经理" [level=4] [ref=e36]
+          - generic [ref=e37]:
+            - generic [ref=e38]: 面向B端电商的全业务Agent产品，实现90%成本削减，内容采纳率超20%。
+            - generic [ref=e39]:
+              - heading "一、电商开品洞察Agent（0-1架构验证）" [level=4] [ref=e40]
+              - paragraph [ref=e41]: 针对家纺开品依赖主观经验与非标数据分析的痛点，规划全链路开品Agent，实现单品开发耗时降低90%，MVP方案采纳率达20%。
+              - list [ref=e42]:
+                - listitem [ref=e43]:
+                  - strong [ref=e44]: Agent架构设计：
+                  - text: 将传统开品SOP重构为“数据抓取(RPA/爬虫) - 分析洞察(LLM语义理解/专家算法) - 方案生成(多Agent/RAG)”三层Agent架构，推动开品决策从“主观经验”转向“数据智能驱动”；
+                - listitem [ref=e45]:
+                  - strong [ref=e46]: 敏捷交互原型：
+                  - text: 独立完成30+功能卡片高保真原型，推动用户体验的可视化验证和客户阶段性验收；
+                - listitem [ref=e47]:
+                  - strong [ref=e48]: 跨团队协同与ROI权衡：
+                  - text: 面向多方技术团队及业务端，创建结构化协同表格，拉齐产品功能细节与数据取值逻辑；设计“数据异步更新”机制，平衡业务需求与算力成本。
+              - heading "二、多模态AIGC创作Agent（敏捷落地）" [level=4] [ref=e49]
+              - paragraph [ref=e50]: 针对电商内容生产高成本、低覆盖的痛点，规划两款面向运营端的AIGC生产Agent，单篇文案生产耗时从60分钟降至10分钟，预估单支视频制作成本降低80%。
+              - list [ref=e51]:
+                - listitem [ref=e52]:
+                  - strong [ref=e53]: 文案矩阵AI工作流：
+                  - text: 明确“品牌定制化+对标拆解”的差异化策略，构建“语气预设-拆解-生成”文案生产工作流，在零代码平台完成PoC，运用vibe 吃、oding跑通MVP，实现AI文案矩阵高质生产；
+                - listitem [ref=e54]:
+                  - strong [ref=e55]: 视频模型评测与验证：
+                  - text: 基于电商带货场景，建立200+样本测试集，评测5个主流模型的能力边界并调优3套提示词。独立搭建AI工作流完成PoC，并设计“效率优先+人工审核”的Agent前端体验。
+            - button "展开详情" [ref=e57]
+        - generic [ref=e58] [cursor=pointer]:
+          - generic [ref=e59]:
+            - generic [ref=e60]: 2025.1 — 2025.3
+            - heading "苏格兰政府 AI 策略部门" [level=3] [ref=e61]
+            - heading "公众咨询工具 产品经理" [level=4] [ref=e62]
+          - generic [ref=e63]:
+            - generic [ref=e64]: 针对AI政策咨询痛点，基于“认知阶梯”策略，设计交互式工具包和APP。
+            - generic [ref=e65]:
+              - paragraph [ref=e66]:
+                - strong [ref=e67]: "产品定义 (0-1):"
+                - text: 针对 AI 政策咨询中门槛高、公众认知断层的痛点，进行定性调研分析，设计“认知阶梯”模型，将抽象的 AI 治理概念转化为低门槛交互流程，提升公众参与深度与有效性。
+              - paragraph [ref=e68]:
+                - strong [ref=e69]: "原型与验证:"
+                - text: 开发交互式工具包与 APP 原型；在苏格兰 AI 公众论坛进行实地测试，收集 20+ 关键用户反馈，验证产品在 AI 政策公众咨询中的有效性。
+              - paragraph [ref=e70]:
+                - strong [ref=e71]: "成果:"
+                - text: 产品获选参加格拉斯哥艺术学院夏季展 (学院前 3/20)，方案被用于后续的 AI 政策公众咨询环节。
+            - button "展开详情" [ref=e73]
+        - generic [ref=e74] [cursor=pointer]:
+          - generic [ref=e75]:
+            - generic [ref=e76]: 2024.1 — 2024.8
+            - heading "浙江大学人机交互实验室" [level=3] [ref=e77]
+            - heading "体验设计负责人" [level=4] [ref=e78]
+          - generic [ref=e79]:
+            - generic [ref=e80]: 负责 3 项 HCI 研究与专著的体验设计，个人列《智能材料与产品创新设计》鸣谢名单前3。
+            - generic [ref=e81]:
+              - paragraph [ref=e82]: 负责 3 项 HCI 研究与 1 本书籍的信息体验设计：将科研概念和成果转化为直观准确的图表及版式设计，优化信息传达和大众阅读体验。
+              - paragraph [ref=e83]:
+                - strong [ref=e84]: "跨部门沟通:"
+                - text: 与 5+ 项目负责人、3 名编辑紧密沟通，确保概念的准确传达、书籍出版的交付效果。
+              - paragraph [ref=e85]:
+                - strong [ref=e86]: "成果:"
+                - text: 研究登 UIST 等 HCI 顶会，个人位列《智能材料与产品创新设计》鸣谢名单前 3。
+            - button "展开详情" [ref=e88]
+        - generic [ref=e89] [cursor=pointer]:
+          - generic [ref=e90]:
+            - generic [ref=e91]: 2023.6 — 2023.9
+            - heading "暨南大学附一潮汕医院" [level=3] [ref=e92]
+            - heading "医疗 SaaS 产品经理" [level=4] [ref=e93]
+          - generic [ref=e94]:
+            - generic [ref=e95]: 针对肿瘤中心“患者外流”问题设计连接医患两端的 SaaS 产品。
+            - generic [ref=e96]:
+              - paragraph [ref=e97]:
+                - strong [ref=e98]: 产品定义 & 原型设计：
+                - text: 针对肿瘤中心“患者外流”问题，对多方用户 (医生、管理层、患者) 进行深度访谈，精准定位医患两端的核心痛点与需求，结合案例分析，制定“专家在线支持+本地化内容触达”产品策略，输出连接医患两端的 SaaS 需求文档、业务流程图、信息架构及高保真交互原型。
+              - paragraph [ref=e99]:
+                - strong [ref=e100]: 测试迭代：
+                - text: 与医患进行的原型测试获积极反馈，为后续迭代提供了关键输入。
+              - paragraph [ref=e101]:
+                - strong [ref=e102]: 产品影响力：
+                - text: 预计减少 50% 患者外流，有效支持管理层的商业决策。
+              - link "查看项目详情" [ref=e103]:
+                - /url: hospital-saas.html
+                - text: 查看项目详情
+                - img [ref=e104]
+            - button "展开详情" [ref=e107]
+    - generic [ref=e109]:
+      - heading "教育背景." [level=2] [ref=e110]
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - heading "格拉斯哥大学 (QS78)" [level=3] [ref=e113]
+          - paragraph [ref=e114]:
+            - strong [ref=e115]: 设计创新与转型设计 · 硕士
+          - paragraph [ref=e116]: Merit 优秀 (专业前10%)。获邀参加校优秀作品展（学院前10%）。
+          - paragraph [ref=e117]: 2024 — 2025.11
+        - generic [ref=e118]:
+          - heading "中国计量大学" [level=3] [ref=e119]
+          - paragraph [ref=e120]:
+            - strong [ref=e121]: 工业设计 · 工学学士
+          - paragraph [ref=e122]: 专业GPA 3.96/5 (专业前5%)；校级优秀毕业生等17项奖学金/荣誉；浙江省大学生工业设计竞赛二等奖第一顺位。
+          - paragraph [ref=e123]: 2017 — 2021
+    - generic [ref=e125]:
+      - heading "专业技能." [level=2] [ref=e126]
+      - generic [ref=e127]:
+        - generic [ref=e128]:
+          - heading "AI 技术栈" [level=3] [ref=e129]
+          - generic [ref=e130]:
+            - generic [ref=e131]:
+              - img [ref=e132]
+              - text: OpenClaw
+            - generic [ref=e134]:
+              - img "Claude" [ref=e135]
+              - text: Claude Code
+            - generic [ref=e136]:
+              - img [ref=e137]
+              - text: Antigravity
+            - generic [ref=e139]:
+              - img "Dify" [ref=e140]
+              - text: Dify
+            - generic [ref=e141]:
+              - img [ref=e142]
+              - text: ComfyUI
+            - generic [ref=e144]:
+              - img [ref=e145]
+              - text: Stitch
+            - generic [ref=e147]:
+              - img [ref=e148]
+              - text: RAG
+            - generic [ref=e150]:
+              - img "Google" [ref=e151]
+              - text: NotebookLM
+            - generic [ref=e152]:
+              - img [ref=e153]
+              - text: Sora Storyboard
+            - generic [ref=e156]:
+              - img "Markdown" [ref=e157]
+              - text: Markdown
+        - generic [ref=e158]:
+          - heading "设计 & more" [level=3] [ref=e159]
+          - generic [ref=e160]:
+            - generic [ref=e161]:
+              - img "Figma" [ref=e162]
+              - text: Figma
+            - generic [ref=e163]:
+              - img [ref=e164]
+              - text: Ai
+            - generic [ref=e169]:
+              - img [ref=e170]
+              - text: Ps
+            - generic [ref=e174]:
+              - img [ref=e175]
+              - text: Rhino 3D
+            - generic [ref=e177]:
+              - img [ref=e178]
+              - text: 飞书多维表格
+            - generic [ref=e180]:
+              - img "Notion" [ref=e181]
+              - text: Notion
+            - generic [ref=e182]:
+              - img [ref=e183]
+              - text: Excel
+            - generic [ref=e186]:
+              - img [ref=e187]
+              - text: 雅思 7.5
+  - contentinfo [ref=e189]:
+    - generic [ref=e190]:
+      - heading "联系吴昊." [level=2] [ref=e191]
+      - generic [ref=e192]:
+        - generic [ref=e193]:
+          - generic [ref=e194]: 电话
+          - strong [ref=e195]: 189 3308 2065
+        - generic [ref=e196]:
+          - generic [ref=e197]: 邮箱
+          - link "corwh@qq.com" [ref=e198] [cursor=pointer]:
+            - /url: mailto:corwh@qq.com
+        - generic [ref=e199]:
+          - generic [ref=e200]: 微信
+          - strong [ref=e201]: COR7WH
+  - generic [ref=e205]:
+    - button "与“我”对话" [active]:
+      - img
+      - generic: 与“我”对话
+    - generic [ref=e210]:
+      - generic [ref=e211]:
+        - generic [ref=e212]: 你想了解吴昊的什么？
+        - button "×" [ref=e213] [cursor=pointer]
+      - generic [ref=e214]:
+        - generic [ref=e216]: 你好，我是吴昊的 AI 助手，可以介绍他的经历、项目和技能。
+        - generic [ref=e217]:
+          - button "介绍一下你的 AI 产品经验" [ref=e218] [cursor=pointer]
+          - button "你做过哪些项目？" [ref=e219] [cursor=pointer]
+          - button "怎么联系你？" [ref=e220] [cursor=pointer]
+        - generic [ref=e221]:
+          - textbox "问点什么…" [ref=e222]
+          - button "发送" [disabled] [ref=e223]:
+            - img [ref=e224]

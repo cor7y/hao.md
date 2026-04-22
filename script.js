@@ -87,6 +87,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fadeElements.forEach(el => observer.observe(el));
 
+    // Mobile nav hamburger toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    if (navToggle && navLinks) {
+        const closeNav = () => {
+            navToggle.classList.remove('open');
+            navLinks.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        };
+
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = navLinks.classList.toggle('open');
+            navToggle.classList.toggle('open', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+        document.addEventListener('click', (e) => {
+            if (!navLinks.classList.contains('open')) return;
+            if (navLinks.contains(e.target) || navToggle.contains(e.target)) return;
+            closeNav();
+        });
+    }
+
     // 2. Expand Work Experience Details (Click entire item)
     const workItems = document.querySelectorAll('.work-item');
     workItems.forEach(item => {
