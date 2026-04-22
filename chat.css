@@ -145,6 +145,7 @@
     align-items: center;
     gap: 0.5rem;
 }
+.chat-error[hidden] { display: none; }
 #chat-error-dismiss {
     background: none;
     border: none;
