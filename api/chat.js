@@ -76,7 +76,10 @@ function wrapMessages(messages) {
 }
 
 async function streamAnthropic(res, messages) {
-  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  const client = new Anthropic({
+    apiKey: process.env.ANTHROPIC_API_KEY,
+    ...(process.env.ANTHROPIC_BASE_URL ? { baseURL: process.env.ANTHROPIC_BASE_URL } : {}),
+  });
   const model = process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5-20251001';
   const stream = await client.messages.stream({
     model,
@@ -96,7 +99,10 @@ async function streamAnthropic(res, messages) {
 }
 
 async function streamOpenAI(res, messages) {
-  const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  const client = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+    ...(process.env.OPENAI_BASE_URL ? { baseURL: process.env.OPENAI_BASE_URL } : {}),
+  });
   const model = process.env.OPENAI_MODEL || 'gpt-4o-mini';
   const stream = await client.chat.completions.create({
     model,
