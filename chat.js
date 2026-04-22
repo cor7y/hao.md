@@ -19,19 +19,44 @@
         return s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
     }
 
+    // Minimal markdown → HTML: bold, bullet lists, line breaks.
+    // Input is already HTML-escaped before calling this.
+    function renderMarkdown(escaped) {
+        const lines = escaped.split('\n');
+        const out = [];
+        let inList = false;
+        for (const raw of lines) {
+            const line = raw.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+            if (/^[-*]\s/.test(raw)) {
+                if (!inList) { out.push('<ul>'); inList = true; }
+                out.push(`<li>${line.replace(/^[-*]\s/, '')}</li>`);
+            } else {
+                if (inList) { out.push('</ul>'); inList = false; }
+                out.push(line === '' ? '<br>' : `<p>${line}</p>`);
+            }
+        }
+        if (inList) out.push('</ul>');
+        return out.join('');
+    }
+
     function render() {
-        const parts = [`<div class="chat-msg assistant">${escapeHTML(WELCOME)}</div>`];
+        const parts = [`<div class="chat-msg assistant">${renderMarkdown(escapeHTML(WELCOME))}</div>`];
         messages.forEach((m, i) => {
             const isLast = i === messages.length - 1;
-            let content = escapeHTML(m.content);
             if (m.role === 'assistant' && isLast && streaming) {
+                let content;
                 if (!m.content) {
                     content = '<span class="chat-thinking"><span></span><span></span><span></span></span>';
                 } else {
-                    content += '<span class="chat-cursor">▍</span>';
+                    content = renderMarkdown(escapeHTML(m.content)) + '<span class="chat-cursor">▍</span>';
                 }
+                parts.push(`<div class="chat-msg assistant">${content}</div>`);
+            } else {
+                const content = m.role === 'assistant'
+                    ? renderMarkdown(escapeHTML(m.content))
+                    : escapeHTML(m.content);
+                parts.push(`<div class="chat-msg ${m.role}">${content}</div>`);
             }
-            parts.push(`<div class="chat-msg ${m.role}">${content}</div>`);
         });
         messagesEl.innerHTML = parts.join('');
         messagesEl.scrollTop = messagesEl.scrollHeight;
